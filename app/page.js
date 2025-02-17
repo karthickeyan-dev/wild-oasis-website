@@ -1,9 +1,3 @@
 export default function Home() {
-  return (
-    <html>
-      <body>
-        <h1>Hello Next</h1>
-      </body>
-    </html>
-  );
+  return <h1>The Wild Oasis. Welcome to the Paradise</h1>;
 }
