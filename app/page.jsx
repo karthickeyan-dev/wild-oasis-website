@@ -4,7 +4,7 @@ import bg from "@/public/bg.png";
 
 export default function Home() {
   return (
-    <main className="mt-24">
+    <div className="mt-24">
       <Image
         src={bg}
         alt="Mountains and forests with two cabins"
@@ -24,6 +24,6 @@ export default function Home() {
           Explore luxury cabins
         </Link>
       </div>
-    </main>
+    </div>
   );
 }
