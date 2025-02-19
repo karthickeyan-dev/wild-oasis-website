@@ -9,7 +9,7 @@ function Logo() {
         src={logo}
         height="60"
         width="60"
-        quality={100}
+        priority={true}
         alt="The Wild Oasis logo"
       />
       <span className="text-xl font-semibold text-primary-100">
