@@ -24,18 +24,6 @@ export async function generateStaticParams() {
 
 export default async function Page({ params }) {
   const { cabinId } = await params;
-
-  // const cabin = await getCabin(cabinId);
-  // const bookedDates = await getBookedDatesByCabinId(cabinId);
-  // const settings = await getSettings();
-
-  //NOTE Promise.all is as fast as the slowest request
-  // const [cabin, bookedDates, settings] = await Promise.all([
-  //   getCabin(cabinId),
-  //   getBookedDatesByCabinId(cabinId),
-  //   getSettings(),
-  // ]);
-
   const cabin = await getCabin(cabinId);
 
   return (

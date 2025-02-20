@@ -3,6 +3,7 @@ import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
 
 export default async function Reservation({ cabin }) {
+  //NOTE  Promise.all is as fast as the slowest request
   const [bookedDates, settings] = await Promise.all([
     getBookedDatesByCabinId(cabin.id),
     getSettings(),
