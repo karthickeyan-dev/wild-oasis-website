@@ -10,6 +10,13 @@ const nextConfig = {
         pathname: "/storage/v1/object/public/cabin-images/**",
         search: "",
       },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        // pathname: "/storage/v1/object/public/cabin-images/**",
+        search: "",
+      },
     ],
   },
 };
