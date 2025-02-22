@@ -33,3 +33,18 @@ export async function updateProfile(formData) {
 
   revalidatePath("/account/profile");
 }
+
+export async function deleteReservation(id) {
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  const { error } = await supabase
+    .from("bookings")
+    .delete()
+    .eq("id", id)
+    .eq("guestId", session.user.guestId);
+
+  if (error) throw new Error("Reservation could not be deleted");
+
+  revalidatePath("/account/reservations");
+}
