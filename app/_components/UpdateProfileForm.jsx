@@ -1,16 +1,21 @@
 "use client";
 
-export default function UpdateProfileForm({ children }) {
-  // CHANGE
-  const countryFlag = "pt.jpg";
-  const nationality = "portugal";
+import { updateProfile } from "../_lib/action";
+
+export default function UpdateProfileForm({ guest, children }) {
+  const { name, email, nationalID, countryFlag } = guest;
 
   return (
-    <form className="flex flex-col gap-6 bg-primary-900 px-12 py-8 text-lg">
+    <form
+      action={updateProfile}
+      className="flex flex-col gap-6 bg-primary-900 px-12 py-8 text-lg"
+    >
       <div className="space-y-2">
         <label>Full name</label>
         <input
           disabled
+          defaultValue={name}
+          name="name"
           className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -19,6 +24,8 @@ export default function UpdateProfileForm({ children }) {
         <label>Email address</label>
         <input
           disabled
+          defaultValue={email}
+          name="email"
           className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -40,6 +47,7 @@ export default function UpdateProfileForm({ children }) {
         <label htmlFor="nationalID">National ID number</label>
         <input
           name="nationalID"
+          defaultValue={nationalID}
           className="w-full rounded-sm bg-primary-200 px-5 py-3 text-primary-800 shadow-sm"
         />
       </div>
