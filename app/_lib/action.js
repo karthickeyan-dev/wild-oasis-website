@@ -3,6 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
+import { redirect } from "next/navigation";
 
 export async function signInAction() {
   await signIn("google", { redirectTo: "/account" });
@@ -47,4 +48,26 @@ export async function deleteReservation(id) {
   if (error) throw new Error("Reservation could not be deleted");
 
   revalidatePath("/account/reservations");
+}
+
+export default async function updateReservation(formData) {
+  const session = await auth();
+  if (!session) throw new Error("You must be logged in");
+
+  const bookingId = Number(formData.get("bookingId"));
+  const updateData = {
+    numGuests: Number(formData.get("numGuests")),
+    observations: formData.get("observations"),
+  };
+
+  const { error } = await supabase
+    .from("bookings")
+    .update(updateData)
+    .eq("id", bookingId)
+    .eq("guestId", session.user.guestId);
+
+  if (error) throw new Error("Reservation could not be updated");
+
+  revalidatePath(`/account/reservations/${bookingId}`);
+  redirect("/account/reservations");
 }
