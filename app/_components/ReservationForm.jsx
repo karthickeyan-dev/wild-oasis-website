@@ -8,7 +8,7 @@ import { useFormStatus } from "react-dom";
 
 export default function ReservationForm({ cabin, user }) {
   const { range, resetRange } = useReservation();
-  const { from: startDate, to: endDate } = range;
+  const { from: startDate, to: endDate } = range || {};
   const { maxCapacity, regularPrice, discount } = cabin;
   const numNights = differenceInDays(endDate, startDate);
   const cabinPrice = numNights * (regularPrice - discount);
