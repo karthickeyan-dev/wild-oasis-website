@@ -25,10 +25,6 @@ function ReservationForm({ cabin, user }) {
           <p>{user.name}</p>
         </div>
       </div>
-
-      <p>
-        {String(range.from)} to {String(range.to)}
-      </p>
       <form className="flex flex-col gap-5 bg-primary-900 px-16 py-10 text-lg">
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
