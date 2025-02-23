@@ -32,21 +32,21 @@ export default function Filter() {
         activeFilter={activeFilter}
         handleFilter={handleFilter}
       >
-        1 &mdash; 3 cabins
+        1 &mdash; 3 guests
       </FilterButton>
       <FilterButton
         filter="medium"
         activeFilter={activeFilter}
         handleFilter={handleFilter}
       >
-        4 &mdash; 7 cabins
+        4 &mdash; 7 guests
       </FilterButton>
       <FilterButton
         filter="large"
         activeFilter={activeFilter}
         handleFilter={handleFilter}
       >
-        8 &mdash; 12 cabins
+        8 &mdash; 12 guests
       </FilterButton>
     </div>
   );
